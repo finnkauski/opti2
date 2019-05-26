@@ -7,7 +7,7 @@ with open("tests/resources/example.txt") as handle:
 
 
 def test_parse():
-    parsed = parse.parse(example)
+    parsed = list(parse.parse(example))
 
     # check that the length was not altered
     assert len(example) == len(parsed)
