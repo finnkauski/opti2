@@ -52,7 +52,8 @@ def editMatrix(xs):
 # +TODO: selection doesnt run if you have an empty list or just 1 empty string
 def selection(xs):
     """
-    Selecting the word which has most similarity with all other words
+    Selecting the text which has most similarity with all other texts
+    using levenshtein distance
 
     Parameters
     ----------

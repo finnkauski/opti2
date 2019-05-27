@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "945bd15eea6cf3ea46da8b9e0d074593bc4d7fc58da06be27220bb92e7ce3d3f"
+            "sha256": "c7d60777427920ff62bd35348dde1f614121ec00c2ab66aa98d1b0f1662de05b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -118,6 +118,12 @@
                 "sha256:fe344face8d30a5a6aa26e5acf288aa2a8f0f32e05efdda3d314b4bf289ec2af"
             ],
             "version": "==1.0.2"
+        },
+        "nltk": {
+            "hashes": [
+                "sha256:fe0eda251be65843be86d7de9abfbf7161732256f742e623b21243ec47bdb718"
+            ],
+            "version": "==3.3.0"
         },
         "numpy": {
             "hashes": [
@@ -258,6 +264,13 @@
             ],
             "index": "pypi",
             "version": "==2.1.4"
+        },
+        "spacy-wordnet": {
+            "hashes": [
+                "sha256:39b72d5929a2e06ba8ccb3800e70695fa88ed66fa3bc7f45171d7d6fa8fd59fa"
+            ],
+            "index": "pypi",
+            "version": "==0.0.4"
         },
         "srsly": {
             "hashes": [
