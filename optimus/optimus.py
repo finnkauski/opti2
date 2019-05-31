@@ -9,7 +9,7 @@ from optimus.core.embedding.fasttext import embed
 from optimus.core.cluster import cluster
 from optimus.core.select import select
 
-# setup config
+# TODO: REWRITE TIER NAMES, make the step size more granular
 
 
 def run(data, model, depth=3, end_depth=15, stepsize=3, **thresholds):
@@ -68,7 +68,7 @@ def run(data, model, depth=3, end_depth=15, stepsize=3, **thresholds):
 
     # embed
     print("    -- embedding")
-    embeddings = list(embed(target, model))
+    embeddings = list(embed(targetM, model))
 
     # cluster
     print("    -- clustering")
