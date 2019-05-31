@@ -10,6 +10,7 @@ from optimus.core.cluster import cluster
 from optimus.core.select import select
 
 # TODO: REWRITE TIER NAMES, make the step size more granular
+# TODO: step away from depth to iterations
 
 
 def run(data, model, depth=3, end_depth=15, stepsize=3, **thresholds):
@@ -60,7 +61,6 @@ def run(data, model, depth=3, end_depth=15, stepsize=3, **thresholds):
     print("[START] Autobots, roll out!")
     print("    -- parsing")
     target = list(parse.parse(parse.default_cleanerM(data)))
-
     targetM = target.copy()  # mutable target
 
     # get number of initial clusters
@@ -85,20 +85,20 @@ def run(data, model, depth=3, end_depth=15, stepsize=3, **thresholds):
 
         if len(set(clusters)) == numclusters:
             print("    >> No new clusters generated")
-            labels[f"tier_{depth}"] = labels[f"tier_{depth-stepsize}"]
+            labels[f"{depth}"] = labels[f"{depth-stepsize}"]
         else:
             numclusters = len(set(clusters))
 
             print("    -- generating labels")
-            labels[f"tier_{depth}"] = list(select(targetM, clusters))
-            targetM = [i if i else j for i, j in zip(labels[f"tier_{depth}"], targetM)]
+            labels[f"{depth}"] = list(select(targetM, clusters))
+            targetM = [i if i else j for i, j in zip(labels[f"{depth}"], targetM)]
 
         depth += stepsize
 
     # make the output match optimus
     dty = labels
     dty["original"] = data
-    dty["current_labels"] = dty[f"tier_{end_depth}"]
+    dty["current_labels"] = dty[f"{end_depth}"]
 
     df = pd.DataFrame.from_dict(dty, orient="index").transpose()
 

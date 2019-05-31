@@ -41,6 +41,7 @@ def default_cleaner(string, regex_dict=replace):
     -------
     str
     """
+    string = string.lower()
     return fp.compose(
         *[fp.partial(re.sub, i, j, flags=re.IGNORECASE) for i, j in regex_dict.items()]
     )(string)
@@ -63,6 +64,7 @@ def keyword(document):
     -------
     str
     """
+    # TODO: potentially different to woffle/optimus
     return [token for token in filter(lambda x: x.dep_ == "ROOT", document)][0]
 
 
